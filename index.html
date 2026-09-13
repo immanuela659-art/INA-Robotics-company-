@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050812">
+<meta name="description" content="IRIN Robotics — custom robots and 3D printed models. Choose your robot, color, body style, size and features, then send your configuration directly to WhatsApp.">
+<title>IRIN Robotics | Custom Robots</title>
+<style>
+:root{--bg:#050812;--panel:#0b1220;--panel2:#101a2c;--line:#1d3550;--text:#f7fbff;--muted:#9fb0c4;--cyan:#45dcff;--blue:#168cff;--gold:#ffc866;--green:#32e6a1;--r:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#103b5d55,transparent 30%),radial-gradient(circle at 10% 30%,#10316b33,transparent 25%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1160px,92%);margin:auto}
+.nav{position:sticky;top:0;z-index:50;background:#050812dd;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}.navin{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;letter-spacing:.09em}.brand b{color:var(--cyan)}.links{display:flex;gap:20px;font-size:.9rem;color:#d8e5f3}.links a:hover{color:var(--cyan)}
+.hero{padding:42px 0 22px}.heroGrid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}.eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:900}.hero h1{font-size:clamp(2.7rem,7vw,5.7rem);line-height:.93;letter-spacing:-.055em;margin:10px 0 18px}.hero h1 span{color:var(--cyan)}.hero p{color:var(--muted);font-size:1.08rem;max-width:650px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:1px solid #ffffff18;background:#ffffff08;padding:12px 17px;border-radius:999px;font-weight:850;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.btn.primary{border:0;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#03101a}.heroImg{width:100%;display:block;border:1px solid #ffffff18;border-radius:24px;box-shadow:0 25px 80px #0009}
+section{padding:55px 0}.sectionTop{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}.sectionTop h2{font-size:clamp(1.9rem,4vw,3rem);margin:5px 0;line-height:1.05}.muted{color:var(--muted)}.price{color:var(--gold);font-weight:950;white-space:nowrap}
+.models{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.model{border:1px solid var(--line);background:linear-gradient(180deg,#101b2c,#09111e);border-radius:18px;padding:15px;cursor:pointer;transition:.18s;min-height:145px}.model:hover,.model.active{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 12px 35px #00cfff14}.modelNum{color:var(--cyan);font-size:.68rem;font-weight:900}.model h3{font-size:.98rem;margin:7px 0 4px}.model p{font-size:.77rem;color:var(--muted);margin:0}.selected{font-size:.72rem;color:var(--green);font-weight:800;margin-top:10px;display:none}.model.active .selected{display:block}
+
+.config{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:start}.preview{position:sticky;top:88px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#101c30,#07101d);padding:18px;overflow:hidden}.previewVisual{min-height:360px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#ffffff12,transparent 50%),linear-gradient(145deg,#0d1d31,#050a12);position:relative}.robotShape{width:210px;height:150px;border-radius:42px 42px 28px 28px;background:linear-gradient(145deg,#dcecff,#73879d);position:relative;box-shadow:0 22px 40px #0008, inset 0 0 0 5px #ffffff15;transition:.25s}.robotShape:before{content:"";position:absolute;left:50%;top:24px;transform:translateX(-50%);width:112px;height:72px;border-radius:22px;background:#07101c;box-shadow:inset 0 0 20px #38dfff33}.robotShape:after{content:"IRIN";position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-weight:950;color:#0b1a28;letter-spacing:.15em}.eye{position:absolute;z-index:2;top:49px;width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}.e1{left:77px}.e2{right:77px}.previewInfo h3{margin:16px 0 3px}.previewInfo p{margin:0;color:var(--muted);font-size:.88rem}.controlPanel{border:1px solid var(--line);border-radius:24px;background:#09121f;padding:20px}.control{padding:16px 0;border-bottom:1px solid #ffffff0e}.control:first-child{padding-top:0}.control:last-child{border-bottom:0}.control label.title{font-weight:900;display:block;margin-bottom:10px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #ffffff18;background:#ffffff06;color:#dce9f7;border-radius:999px;padding:9px 12px;cursor:pointer}.chip.active{border-color:var(--cyan);background:#23caff16;color:#fff}.swatches{display:flex;gap:10px;flex-wrap:wrap}.swatch{width:38px;height:38px;border-radius:50%;border:3px solid transparent;cursor:pointer;box-shadow:0 0 0 1px #ffffff30}.swatch.active{border-color:white;box-shadow:0 0 0 2px var(--cyan)}.check{display:flex;gap:9px;align-items:center;margin:9px 0;color:#d7e5f4}.check input{width:18px;height:18px;accent-color:var(--cyan)}.summary{margin-top:14px;padding:15px;border-radius:16px;background:#ffffff05;border:1px solid #ffffff0e}.summary strong{color:var(--cyan)}.wa{width:100%;margin-top:12px;background:linear-gradient(135deg,#18b86a,#37e39a);color:#02140b;border:0}.note{font-size:.74rem;color:var(--muted);margin-top:9px}
+.why{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.whyCard{padding:18px;border:1px solid var(--line);border-radius:18px;background:#ffffff04}.whyCard b{display:block;margin:8px 0 3px}.whyCard span{font-size:.8rem;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.contactCard{border:1px solid var(--line);border-radius:22px;padding:25px;background:linear-gradient(145deg,#0d1b2e,#08101b)}.numbers{font-size:1.35rem;font-weight:900;line-height:1.8}.numbers a:hover{color:var(--cyan)}
+footer{padding:30px 0;border-top:1px solid #ffffff12;text-align:center;color:var(--muted);font-size:.85rem}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);opacity:0;background:#13263a;border:1px solid var(--cyan);padding:12px 16px;border-radius:999px;z-index:100;transition:.25s}.toast.show{transform:translate(-50%,0);opacity:1}
+@media(max-width:900px){.models{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:repeat(2,1fr)}.heroGrid,.config,.contact{grid-template-columns:1fr}.preview{position:relative;top:auto}}
+@media(max-width:520px){.links{display:none}.models,.why{grid-template-columns:1fr}.hero{padding-top:30px}.sectionTop{align-items:start;flex-direction:column}.previewVisual{min-height:300px}.robotShape{transform:scale(.85)}}
+</style>
+</head>
+<body>
+<div class="toast" id="toast">Configuration copied</div>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="#top">IRIN <b>ROBOTICS</b></a><div class="links"><a href="#models">Models</a><a href="#customize">Customize</a><a href="#why">Why IRIN</a><a href="#contact">Contact</a></div></div></nav>
+
+<main id="top">
+<section class="hero"><div class="wrap heroGrid">
+<div>
+<div class="eyebrow">Powered by INA</div>
+<h1>Your imagination.<br><span>Our creation.</span></h1>
+<p>Design a robot around your idea. Choose a model, color, body style, size and features — then send the complete configuration to IRIN Robotics on WhatsApp.</p>
+<div class="actions"><a class="btn primary" href="#customize">Customize a Robot</a><a class="btn" href="#models">View Models</a></div>
+<p style="margin-top:14px"><span class="price">₹7,999 per model*</span> · Customization available</p>
+</div>
+<img class="heroImg" src="irin-robotics-poster.jpg" alt="IRIN Robotics custom robot showcase">
+</div></section>
+
+<section id="models"><div class="wrap">
+<div class="sectionTop"><div><div class="eyebrow">Choose your base</div><h2>10 robot concepts</h2></div><div class="price">₹7,999 each*</div></div>
+<p class="muted">Tap any model. Your selection will automatically open in the customization panel.</p>
+<div class="models" id="modelsGrid"></div>
+</div></section>
+
+<section id="customize"><div class="wrap">
+<div class="sectionTop"><div><div class="eyebrow">Build your version</div><h2>Customize your robot</h2></div><span class="price">₹7,999*</span></div>
+<div class="config">
+<div class="preview">
+<div class="previewVisual"><div class="robotShape" id="robotShape"><i class="eye e1"></i><i class="eye e2"></i></div></div>
+<div class="previewInfo"><h3 id="previewName">Low-Profile Rover</h3><p id="previewDesc">Compact rover concept</p></div>
+</div>
+<div class="controlPanel">
+<div class="control"><label class="title">1. Robot model</label><div class="chips" id="modelChips"></div></div>
+<div class="control"><label class="title">2. Color</label><div class="swatches" id="swatches"></div></div>
+<div class="control"><label class="title">3. Body style</label><div class="chips" id="shapeChips"></div></div>
+<div class="control"><label class="title">4. Size</label><div class="chips" id="sizeChips"></div></div>
+<div class="control"><label class="title">5. Features</label>
+<label class="check"><input type="checkbox" value="AI voice assistant"> AI voice assistant</label>
+<label class="check"><input type="checkbox" value="LED eyes"> LED eyes / lighting</label>
+<label class="check"><input type="checkbox" value="Mobile movement"> Mobile movement</label>
+<label class="check"><input type="checkbox" value="Custom 3D printed body"> Custom 3D-printed body</label>
+<label class="check"><input type="checkbox" value="Custom logo"> IRIN / custom logo</label>
+</div>
+<div class="summary">
+<div><strong id="sumModel">Model:</strong> Low-Profile Rover</div>
+<div><strong>Color:</strong> <span id="sumColor">Ice White</span></div>
+<div><strong>Body:</strong> <span id="sumShape">Futuristic</span></div>
+<div><strong>Size:</strong> <span id="sumSize">Standard</span></div>
+<div><strong>Features:</strong> <span id="sumFeatures">Choose features</span></div>
+</div>
+<button class="btn wa" id="whatsapp">💬 Send this custom design on WhatsApp</button>
+<div class="note">The ₹7,999 amount is the listed base price from the supplied showcase. Final price may depend on the selected customization and build requirements.</div>
+</div>
+</div>
+</div></section>
+
+<section id="why"><div class="wrap"><div class="sectionTop"><div><div class="eyebrow">Why choose IRIN Robotics?</div><h2>Custom. Creative. Unique.</h2></div></div>
+<div class="why">
+<div class="whyCard">💬<b>AI-powered</b><span>Assistant-style interaction concepts.</span></div>
+<div class="whyCard">⚙️<b>Fully customizable</b><span>Shape, size, color and design.</span></div>
+<div class="whyCard">🧩<b>3D printed</b><span>Detailed custom body concepts.</span></div>
+<div class="whyCard">🎨<b>Your colors</b><span>Choose the finish you want.</span></div>
+<div class="whyCard">🛡️<b>Project focused</b><span>Built around your requirements.</span></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap contact">
+<div class="contactCard"><div class="eyebrow">Ready to build?</div><h2>Let's build your imagination.</h2><p class="muted">Use the configurator above and send your selections directly to IRIN Robotics.</p><a class="btn primary" href="#customize">Start Customizing</a></div>
+<div class="contactCard"><div class="eyebrow">Contact</div><div class="numbers"><a href="tel:+919442906639">94429 06639</a><br><a href="tel:+918078812246">80788 12246</a><br><a href="tel:+919497181687">94971 81687</a></div><p class="muted">Talk • Create • Imagine</p></div>
+</div></section>
+</main>
+<footer>© 2026 IRIN Robotics · Powered by INA · Custom · Creative · Unique</footer>
+
+<script>
+const robots=[
+["ACL-1","Low-Profile Rover","Compact rover concept"],
+["SCK-2","Interactive Companion","Friendly companion concept"],
+["MDP-3","Media Assistant","Media and assistant concept"],
+["SVY-4","Tracked Survey Bot","Tracked survey concept"],
+["CMC-S","Cuteness Mobility Companion","Playful mobile companion"],
+["VSX-3","Vintage Tracked Scout","Rugged retro concept"],
+["FQY-1","Faceted Quadruped","Geometric four-leg concept"],
+["MDP-3b","Premium Media Assistant","Premium media concept"],
+["SCK-2a","Premium Interactive Companion","Premium companion concept"],
+["CMC-Sa","Stealth Mobility Companion","Modern compact mobility concept"]
+];
+const colors=[
+["Ice White","#e8f1f6"],["Midnight Black","#11151c"],["Ocean Blue","#087ff5"],["Neon Cyan","#18dfff"],["Royal Purple","#7a4dff"],["Ruby Red","#e5394f"],["Forest Green","#1fa36b"],["Sunset Gold","#e7aa35"]
+];
+const shapes=["Futuristic","Rounded","Angular","Rugged","Compact"];
+const sizes=["Mini","Standard","Large","Custom"];
+let state={model:0,color:0,shape:"Futuristic",size:"Standard"};
+
+const $=id=>document.getElementById(id);
+function renderModels(){
+  $("modelsGrid").innerHTML=robots.map((r,i)=>`<div class="model ${i===state.model?'active':''}" data-i="${i}"><div class="modelNum">${String(i+1).padStart(2,"0")} / ${r[0]}</div><h3>${r[1]}</h3><p>${r[2]}</p><div class="selected">✓ Selected</div></div>`).join("");
+  document.querySelectorAll(".model").forEach(el=>el.onclick=()=>{state.model=+el.dataset.i;renderAll();document.getElementById("customize").scrollIntoView({behavior:"smooth"})});
+}
+function chips(container,items,active,cb){
+  $(container).innerHTML=items.map((x,i)=>`<button class="chip ${x===active||i===active?'active':''}">${typeof x==="string"?x:x[1]}</button>`).join("");
+  $(container).querySelectorAll(".chip").forEach((b,i)=>b.onclick=()=>cb(i));
+}
+function renderAll(){
+  renderModels();
+  chips("modelChips",robots,state.model,i=>{state.model=i;renderAll()});
+  chips("shapeChips",shapes,state.shape,i=>{state.shape=shapes[i];renderAll()});
+  chips("sizeChips",sizes,state.size,i=>{state.size=sizes[i];renderAll()});
+  $("swatches").innerHTML=colors.map((c,i)=>`<button title="${c[0]}" aria-label="${c[0]}" class="swatch ${i===state.color?'active':''}" style="background:${c[1]}" data-i="${i}"></button>`).join("");
+  document.querySelectorAll(".swatch").forEach(b=>b.onclick=()=>{state.color=+b.dataset.i;renderAll()});
+  const r=robots[state.model], c=colors[state.color];
+  $("previewName").textContent=r[1];$("previewDesc").textContent=r[2];
+  $("sumModel").textContent="Model: "+r[1];$("sumColor").textContent=c[0];$("sumShape").textContent=state.shape;$("sumSize").textContent=state.size;
+  const feats=[...document.querySelectorAll(".check input:checked")].map(x=>x.value);
+  $("sumFeatures").textContent=feats.length?feats.join(", "):"None selected";
+  const robot=$("robotShape"); robot.style.background=`linear-gradient(145deg,${c[1]},#526579)`;
+  robot.style.borderRadius=state.shape==="Angular"?"12px":state.shape==="Rounded"?"65px":state.shape==="Rugged"?"22px":"42px 42px 28px 28px";
+  robot.style.width=state.size==="Mini"?"165px":state.size==="Large"?"255px":state.size==="Custom"?"225px":"210px";
+  robot.style.height=state.size==="Mini"?"118px":state.size==="Large"?"182px":state.size==="Custom"?"160px":"150px";
+}
+document.querySelectorAll(".check input").forEach(x=>x.addEventListener("change",renderAll));
+$("whatsapp").onclick=()=>{
+  const feats=[...document.querySelectorAll(".check input:checked")].map(x=>x.value);
+  const r=robots[state.model],c=colors[state.color];
+  const msg=`Hello IRIN Robotics!%0A%0AI want to customize a robot.%0A%0AModel: ${r[1]} (${r[0]})%0AColor: ${c[0]}%0ABody style: ${state.shape}%0ASize: ${state.size}%0AFeatures: ${feats.length?feats.join(", "):"None"}%0AListed base price: ₹7,999%0A%0APlease confirm the final price and build details.`;
+  window.open("https://wa.me/919442906639?text="+msg,"_blank");
+};
+renderAll();
+</script>
+</body>
+</html>
